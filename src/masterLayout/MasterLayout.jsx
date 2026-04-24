@@ -7,7 +7,9 @@ const MasterLayout = ({ children }) => {
   let [sidebarActive, seSidebarActive] = useState(false);
   let [mobileMenu, setMobileMenu] = useState(false);
   const location = useLocation(); // Hook to get the current route
-
+const handleOpenNewtab = (url) => {
+  window.open(url, '_blank', 'noopener,noreferrer');
+};
   useEffect(() => {
     const handleDropdownClick = (event) => {
       event.preventDefault();
@@ -1958,7 +1960,10 @@ const MasterLayout = ({ children }) => {
         <footer className='d-footer'>
           <div className='row align-items-center justify-content-between'>
             <div className='col-auto'>
-              <p className='mb-0'>© 2026 Global Digital Care. All Rights Reserved.</p>
+              <p className='mb-0'>© 2026 <a href="#" onClick={(e) => {
+    e.preventDefault();
+    handleOpenNewtab("https://www.globaldigitalcare.pk/");
+  }}}> Global Digital Care </a>. All Rights Reserved.</p>
             </div>
             <div className='col-auto'>
               <p className='mb-0'>
